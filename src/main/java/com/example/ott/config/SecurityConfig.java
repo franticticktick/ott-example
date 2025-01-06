@@ -21,8 +21,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) ->
                         auth.requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                                 .permitAll()
-                                .requestMatchers("/page").permitAll()
-                                .anyRequest().authenticated()
+                                .requestMatchers("/page")
+                                .permitAll()
+                                .anyRequest()
+                                .authenticated()
                 )
                 .formLogin(Customizer.withDefaults())
                 .oneTimeTokenLogin(Customizer.withDefaults())
